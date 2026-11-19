@@ -37,7 +37,7 @@ const categories = [
     description:
       "Explore wellness essentials that support your comfort, recovery and everyday wellbeing.",
     image:
-      "https://images.unsplash.com/photo-1505576399273-565b52d4ac71?w=1000",
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
     icon: HeartPulse,
     count: "05",
     theme: "teal",

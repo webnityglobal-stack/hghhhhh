@@ -10,7 +10,7 @@ import {
   ShoppingCart,
   ShieldCheck,
 } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
+// import Navbar from "../components/layout/Navbar";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -24,13 +24,17 @@ function Cart() {
     setCartItems(savedCart);
   }, []);
 
-  // Update localStorage
+  // Update cart and localStorage
   const updateCart = (updatedCart) => {
     setCartItems(updatedCart);
+
     localStorage.setItem(
       "medicareCart",
       JSON.stringify(updatedCart)
     );
+
+    // Notify Navbar
+    window.dispatchEvent(new Event("cartUpdated"));
   };
 
   // Increase quantity
@@ -79,7 +83,7 @@ function Cart() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className="min-h-screen bg-slate-50 px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto">

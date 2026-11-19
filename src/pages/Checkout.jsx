@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../components/layout/Navbar";
+// import Navbar from "../components/layout/Navbar";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
 
 function Checkout() {
@@ -69,7 +69,7 @@ function Checkout() {
   if (cart.length === 0) {
     return (
       <>
-        <Navbar />
+        
         <div className="min-h-screen flex flex-col items-center justify-center">
           <h2 className="text-2xl font-bold">Your Cart is Empty</h2>
           <Link to="/shop" className="text-blue-600 mt-4">
@@ -82,7 +82,7 @@ function Checkout() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className="min-h-screen bg-slate-50 px-4 sm:px-6 lg:px-10 py-10">
         <div className="max-w-7xl mx-auto">

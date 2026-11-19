@@ -18,6 +18,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [cartCount, setCartCount] = useState(0);
   const [user, setUser] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("medicareUser")) || null;
@@ -46,10 +47,48 @@ function Navbar() {
     };
   }, []);
 
+useEffect(() => {
+  const syncCartCount = () => {
+    try {
+      const cart = JSON.parse(
+        localStorage.getItem("medicareCart") || "[]"
+      );
+
+      const count = cart.reduce(
+        (sum, item) => sum + Number(item.quantity || 0),
+        0
+      );
+
+      setCartCount(count);
+    } catch (error) {
+      console.error("Cart count error:", error);
+      setCartCount(0);
+    }
+  };
+
+  // Initial sync
+  syncCartCount();
+
+  // Same-tab cart changes
+  window.addEventListener("cartUpdated", syncCartCount);
+
+  // Other-tab changes
+  window.addEventListener("storage", syncCartCount);
+
+  // Fallback sync: refresh count automatically
+  const interval = setInterval(syncCartCount, 500);
+
+  return () => {
+    window.removeEventListener("cartUpdated", syncCartCount);
+    window.removeEventListener("storage", syncCartCount);
+    clearInterval(interval);
+  };
+}, []);
+
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Shop", path: "/shop" },
-    { name: "Categories", path: "/shop" },
+    { name: "Categories", path: "/categories" },
     { name: "My Orders", path: "/my-orders" },
     { name: "Contact", path: "/contact" },
   ];
@@ -132,9 +171,15 @@ function Navbar() {
             <Link
               to="/cart"
               className="relative text-slate-600 hover:text-blue-600"
-              aria-label="Shopping cart"
+              aria-label={`Shopping cart with ${cartCount} items`}
             >
               <ShoppingCart size={22} />
+
+              {user && cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 min-w-[19px] h-[19px] px-1 bg-red-500 text-white text-[11px] font-bold rounded-full flex items-center justify-center">
+                  {cartCount > 99 ? "99+" : cartCount}
+                </span>
+              )}
             </Link>
 
 
@@ -234,8 +279,18 @@ function Navbar() {
 
           {/* Mobile Actions */}
           <div className="flex lg:hidden items-center gap-4">
-            <Link to="/cart" className="text-slate-700">
+            <Link
+              to="/cart"
+              className="relative text-slate-700 hover:text-blue-600"
+              aria-label={`Shopping cart with ${cartCount} items`}
+            >
               <ShoppingCart size={22} />
+
+              {user && cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 min-w-[19px] h-[19px] px-1 bg-red-500 text-white text-[11px] font-bold rounded-full flex items-center justify-center">
+                  {cartCount > 99 ? "99+" : cartCount}
+                </span>
+              )}
             </Link>
 
             <button

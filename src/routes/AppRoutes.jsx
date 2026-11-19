@@ -2,6 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/layout/Navbar.jsx";
 import Footer from "../components/layout/Footer.jsx";
+import ScrollToTop from "../components/ScrollToTop.jsx";
 
 import Home from "../pages/Home.jsx";
 import Shop from "../pages/Shop.jsx";
@@ -22,6 +23,7 @@ import ProtectedRoute from "../components/common/ProtectedRoute.jsx";
 function AppRoutes() {
   return (
     <>
+      <ScrollToTop />
      <Navbar />
     <Routes>
       {/* Public Pages */}

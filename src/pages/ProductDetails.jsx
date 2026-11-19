@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import { ShoppingCart, Minus, Plus, Truck, ShieldCheck, ArrowLeft } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
 import products from "../data/products";
 
 function ProductDetails() {
@@ -22,6 +21,7 @@ function ProductDetails() {
     const existingCart = JSON.parse(
       localStorage.getItem("medicareCart") || "[]"
     );
+    
 
     const existingProduct = existingCart.find(
       (item) => item.id === product.id
@@ -47,13 +47,14 @@ function ProductDetails() {
       JSON.stringify(updatedCart)
     );
 
+    window.dispatchEvent(new Event("cartUpdated"));
+
     setCartMessage("Product successfully added to cart!");
   };
 
   if (!product) {
     return (
       <>
-        <Navbar />
         <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 text-center">
           <h2 className="text-2xl font-bold text-slate-800">
             Product Not Found
@@ -72,7 +73,7 @@ function ProductDetails() {
 
   return (
     <>
-      <Navbar />
+      
 
       <main className="bg-white min-h-screen px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto">

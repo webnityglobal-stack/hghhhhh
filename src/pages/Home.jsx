@@ -32,8 +32,7 @@ const categories = [
     {
         name: "Health & Wellness",
         description: "Everyday essentials for a healthier lifestyle.",
-        image:
-            "https://images.unsplash.com/photo-1505576399273-565b52d4ac71?w=800",
+        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
         icon: HeartPulse,
     },
     {
@@ -461,8 +460,8 @@ function Home() {
                                             <button
                                                 onClick={() => handleAddToCart(product)}
                                                 className={`w-full mt-5 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold transition ${addedProduct === product.id
-                                                        ? "bg-teal-600 text-white"
-                                                        : "bg-blue-600 hover:bg-blue-700 text-white"
+                                                    ? "bg-teal-600 text-white"
+                                                    : "bg-blue-600 hover:bg-blue-700 text-white"
                                                     }`}
                                             >
                                                 {addedProduct === product.id ? (

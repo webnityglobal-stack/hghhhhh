@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "../components/layout/Navbar";
+// import Navbar from "../components/layout/Navbar";
 import { CheckCircle, Package, ShoppingBag } from "lucide-react";
 
 function OrderSuccess() {
@@ -20,7 +20,7 @@ function OrderSuccess() {
   if (!order) {
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center">
           <h2 className="text-2xl font-bold text-slate-800">
             No Order Found
@@ -38,7 +38,7 @@ function OrderSuccess() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
         <div className="max-w-3xl mx-auto">

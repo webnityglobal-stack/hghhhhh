@@ -17,7 +17,6 @@ function MyOrders() {
 
   return (
     <>
-      <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 sm:px-6 lg:px-10 py-10">
         <div className="max-w-6xl mx-auto">
