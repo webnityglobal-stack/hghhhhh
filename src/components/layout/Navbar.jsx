@@ -88,7 +88,7 @@ useEffect(() => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Shop", path: "/shop" },
-    { name: "Categories", path: "/categories" },
+    // { name: "Categories", path: "/categories" },
     { name: "My Orders", path: "/my-orders" },
     { name: "Contact", path: "/contact" },
   ];

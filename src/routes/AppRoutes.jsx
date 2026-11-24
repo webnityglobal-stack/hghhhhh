@@ -17,6 +17,7 @@ import Login from "../pages/Login.jsx";
 import Signup from "../pages/Signup.jsx";
 import ForgotPassword from "../pages/ForgotPassword.jsx";
 import Categories from "../pages/Categories.jsx";
+import Support from "../pages/Support.jsx";
 
 import ProtectedRoute from "../components/common/ProtectedRoute.jsx";
 
@@ -60,6 +61,7 @@ function AppRoutes() {
       } />
 
       <Route path="/categories" element={<Categories />} />
+      <Route path="/support" element={<Support />} />
     </Routes>
       <Footer />
     </>

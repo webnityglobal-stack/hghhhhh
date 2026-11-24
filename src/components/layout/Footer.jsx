@@ -124,13 +124,38 @@ function Footer() {
                         </h3>
 
                         <ul className="space-y-4 text-sm text-slate-400">
-                            <li><Link to="/contact" className="hover:text-white transition">Help Center</Link></li>
-                            <li><Link to="/faq" className="hover:text-white transition">Frequently Asked Questions</Link></li>
-                            <li><Link to="/shipping-policy" className="hover:text-white transition">Shipping Policy</Link></li>
-                            <li><Link to="/return-policy" className="hover:text-white transition">Return Policy</Link></li>
-                            <li><Link to="/contact" className="hover:text-white transition">Customer Care</Link></li>
+                            <li>
+                                <Link to="/support#help-center" className="hover:text-white transition">
+                                    Help Center
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to="/support#faq" className="hover:text-white transition">
+                                    Frequently Asked Questions
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to="/support#shipping-policy" className="hover:text-white transition">
+                                    Shipping Policy
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to="/support#return-policy" className="hover:text-white transition">
+                                    Return & Refund Policy
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to="/contact" className="hover:text-white transition">
+                                    Customer Care
+                                </Link>
+                            </li>
                         </ul>
                     </div>
+
 
                     {/* Contact */}
                     <div>
